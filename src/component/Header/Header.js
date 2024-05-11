@@ -15,6 +15,7 @@ const Header = () => {
         }
     }
 
+   
     useEffect (()=>{
         // ` When we scroll it will trigger the handleTransition function
         window.addEventListener("scroll",handleTransition)
