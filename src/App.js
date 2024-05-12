@@ -19,6 +19,7 @@ function App() {
 
   //` useEffect which will listen the user login state and if the user is logged in then it will redirect to the home page else it will redirect to the login page`
   
+  // * the useEffect will be based on dispatch
   useEffect(()=> {
    const unSubscribe =  auth.onAuthStateChanged(userAuth => {
       if(userAuth) {
@@ -31,14 +32,14 @@ function App() {
       } else {
         // * Logged Out
 
-        dispatch(logout)
+        dispatch(logout())
 
       }
 
     })
 
     return unSubscribe
-  },[])
+  },[dispatch])
 
   return (
     <div className="App">
