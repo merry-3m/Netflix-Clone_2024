@@ -45,7 +45,7 @@ function App() {
     <div className="App">
   <Routes>
     {!user ? (
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/login" element={<LoginPage />} />
     ) : (
       <React.Fragment>
       <Route path="/" element={<Home />} />

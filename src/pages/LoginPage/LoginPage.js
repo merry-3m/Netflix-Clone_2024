@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import "./logIn.css"
 import netflix_logo from "../../assets/images/logo.png"
-import SignUpPage from '../SignUpPage/SignUpPage'
 
+import SignUpPage from "../SignUpPage/SignUpPage"
 const LoginPage = () => {
 
     // ` We have a signIn state false and if it clicked it will be true and render signUp page

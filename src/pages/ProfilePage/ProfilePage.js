@@ -7,11 +7,27 @@ import { useSelector } from'react-redux'
 import { selectUser } from '../../features/userSlice'
 import { auth } from '../../fireBase/fireBase'
 import PlanPage from '../PlanPage/PlanPage'
+// ` use useNavigate to redirect to logInPage when signOut get clicked on
+import { useNavigate } from 'react-router-dom'
 
 const ProfilePage = () => {
 
     //` To access user email
     const user = useSelector(selectUser)
+
+    const navigate = useNavigate()
+
+    // ` This onclick will go to app.js and check the onchange if the user is null it will log out and the log out function is inside userSlice.js and if user is null it will take us to loginPage
+
+    const handleSignOut = () => {
+      auth.signOut()
+      .then(()=> {
+        navigate('/login')
+      }).catch(err => {
+        console.error(`Error signing out: ${err.message}`);
+      });
+    }
+    
 
   return (
     <div className='profilePage'>
@@ -32,7 +48,7 @@ const ProfilePage = () => {
 
 
                         <button
-                        onClick={()=>auth.signOut()}
+                        onClick={handleSignOut}
                         // ` This onclick will go to app.js and check the onchange if the user is null it will log out and the log out function is inside userSlice.js and if user is null it will take us to loginPage
                          className='profilePage_signOut'
                          >Sign Out </button>
