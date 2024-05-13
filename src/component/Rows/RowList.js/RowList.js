@@ -1,10 +1,14 @@
 import React from 'react'
 import Row from '../Row/Row'
-import requests from '../../../Utils/requests'
+// import requests from '../../../Utils/requests'
+import requests from '../../../Utils/Request'
+
+console.log(requests);
 
 const RowList = () => {
   return (
     <>
+   
     <Row
      fetchUrl={requests.fetchNetflixOriginals}
      title='Netflix Original'
@@ -21,10 +25,10 @@ const RowList = () => {
      fetchUrl={requests.fetchHorrorMovies}
      title='Horror Movies'
      isLargeRow />
-   {/* <Row
-     fetchUrl={requests.fetchRomanceMovies}
-     title='Romance Movies'
-     isLargeRow /> */}
+   <Row
+     fetchUrl={requests.fetchTvDrama}
+     title='Tv Drama'
+     isLargeRow />
    <Row
      fetchUrl={requests.fetchTopRated}
      title='TopRated Movies'

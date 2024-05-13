@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import "./banner.css"
 import axios from "../../Utils/axios"
-import requests from '../../Utils/requests'
+// import requests from '../../Utils/requests'
+import requests from '../../Utils/Request'
 const Banner = () => {
   // ` fetch movie from TMDB 
 
