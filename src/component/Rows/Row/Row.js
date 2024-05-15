@@ -13,12 +13,14 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
   const base_url = 'https://image.tmdb.org/t/p/original';
   // ## useEffect is used here to make an HTTP request   when this component mounts and then it will  update  the movies in our state whenever there is any change in fetchUrl or isLargeRow value.
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(fetchUrl); // Using fetchUrl directly
-        
+        const response = await axios.get(fetchUrl);
+        // console.log(response);
         setMovies(response.data.results);
+        // return response
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -54,7 +56,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
     <div className="row">
       <h1 className="title">{title}</h1>
       <div className="row_posters">
-        {movies && movies.map((movie, i) => (
+        {movies?.map((movie, i) => (
           <img
             onClick={() => handleClick(movie)}
             key={i}

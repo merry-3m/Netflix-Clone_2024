@@ -1,7 +1,7 @@
 import React from 'react'
 import Row from '../Row/Row'
-// import requests from '../../../Utils/requests'
-import requests from '../../../Utils/Request'
+import requests from '../../../Utils/requests'
+// import requests from '../../../Utils/Request'
 
 console.log(requests);
 

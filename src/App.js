@@ -11,6 +11,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 
 function App() {
+  console.log('first');
   // ` We can access the user from userSlice redux
   const user = useSelector(selectUser)
 
