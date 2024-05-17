@@ -103,14 +103,12 @@ const PlanPage = () => {
        
        }
         {Object.entries(products).map(([productId,productData])=>{
-             const isCurrentPackage = productData.name
-             ?.includes(subscription?.role)
+             const isCurrentPackage = productData.name === subscription?.role; // Strict equality check
         
             return (
-                <div 
-                key={productId}
-                className={`${
-                    isCurrentPackage && "planPage_plan_disable"} planPage_plan`}>
+                <div
+                        key={productId}
+                        className={`planPage_plan ${isCurrentPackage ? "planPage_plan_disable" : ""}`}>
                 <div className="planPage_info">
                     <h5>{productData.name}</h5>
                     <h6>{productData.description}</h6>

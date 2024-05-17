@@ -2,16 +2,19 @@ import React, { useEffect } from 'react';
 
 import './App.css';
 import Home from './pages/Home/Home';
-import { Route, Routes} from "react-router-dom"
+import { Route, Routes, Navigate} from "react-router-dom"
 import { auth } from './fireBase/fireBase';
 import {useDispatch, useSelector} from "react-redux"
 import { login, logout, selectUser } from './features/userSlice';
 import LoginPage from './pages/LoginPage/LoginPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import NotFound from "./pages/NotFound/NotFound"
 
 
 function App() {
-  console.log('first');
+  // console.log('first');
   // ` We can access the user from userSlice redux
   const user = useSelector(selectUser)
 
@@ -44,16 +47,13 @@ function App() {
 
   return (
     <div className="App">
-  <Routes>
-    {!user ? (
-      <Route path="/login" element={<LoginPage />} />
-    ) : (
-      <React.Fragment>
-      <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      </React.Fragment>
-    )}
-  </Routes>
+      <ToastContainer theme='dark' />
+      <Routes>
+        <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/" />} />
+        <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+        <Route path="/profile" element={user ? <ProfilePage /> : <Navigate to="/login" />} />
+        <Route path="*" element={<NotFound />} /> 
+      </Routes>
 </div>
   );
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import "./profile.css"
-import Header from '../../component/Header/Header'
 import avatar_logo from "../../assets/images/avatar.png"
 
 import { useSelector } from'react-redux'
@@ -9,6 +8,7 @@ import { auth } from '../../fireBase/fireBase'
 import PlanPage from '../PlanPage/PlanPage'
 // ` use useNavigate to redirect to logInPage when signOut get clicked on
 import { useNavigate } from 'react-router-dom'
+import SimpleHeader from '../../component/Header/SimpleHeader'
 
 const ProfilePage = () => {
 
@@ -31,7 +31,7 @@ const ProfilePage = () => {
 
   return (
     <div className='profilePage'>
-        <Header/>
+        <SimpleHeader/>
 
         <div className="profilePage_body">
             <h1>Edit Profile</h1>

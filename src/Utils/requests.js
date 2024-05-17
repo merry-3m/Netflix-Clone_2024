@@ -1,5 +1,5 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
-console.log(API_KEY );
+// console.log(API_KEY );
 
 const requests = {
     fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
@@ -8,7 +8,7 @@ const requests = {
     fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
     fetchComedyMovies: `/discover/movie?api_key=${API_KEY}&with_genres=35`,
     fetchHorrorMovies: `/discover/movie?api_key=${API_KEY}&with_genres=27`,
-    fetchRomanceMovies: `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
+    fetchTvDrama: `/discover/tv?api_key=${API_KEY}&language=en-US&page=1`,
     fetchDocumentariesMovies: `/discover/movie?api_key=${API_KEY}&with_genres=99`,
     fetchTvShows: `/trending/tv/day?api_key=${API_KEY}&language=en-US`,
 

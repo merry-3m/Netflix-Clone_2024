@@ -3,7 +3,8 @@ import Row from '../Row/Row'
 import requests from '../../../Utils/requests'
 // import requests from '../../../Utils/Request'
 
-console.log(requests);
+// console.log(requests);
+
 
 const RowList = () => {
   return (

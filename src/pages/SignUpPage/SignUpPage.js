@@ -3,6 +3,8 @@ import "./signUp.css"
 import { auth } from '../../fireBase/fireBase'
 // ` use useNavigate to redirect to profilePage when signIn get clicked on
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify";
+
 
 const SignUpPage = () => {
 
@@ -32,7 +34,7 @@ const SignUpPage = () => {
                 navigate("/profile")
 
             }catch(err) {
-                alert(err.message)
+                toast.error(err.code.split("/")[1].split("-").join(" "))
             }
         }
            
@@ -53,7 +55,7 @@ const SignUpPage = () => {
         console.log(userCredential.user);
         navigate("/profile")
        } catch (err) {
-         console.log(err.message);
+        toast.error(err.code.split("/")[1].split("-").join(" "))
        }
     }
 
